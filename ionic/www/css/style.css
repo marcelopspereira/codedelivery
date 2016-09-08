@@ -67,16 +67,16 @@
         font-size: 1.2em;
     }
     .equipe{
-        font-size: 1.0em !important;
+        font-size: 1.1em !important;
     }
     .label{
-        font-size: 1.0em !important;
+        font-size: 1.1em !important;
         color: #000000 !important;
         margin-top: -20px !important;
     }
 
     .visita{
-        font-size: 1.0em !important;
+        font-size: 1.1em !important;
     }
 
 }
@@ -93,7 +93,7 @@
 
         cursor: pointer !important;
         text-align: center !important;
-        margin-top: 25% !important;
+        margin-top: 0% !important;
         padding: 2px 2px !important;
     }
 
