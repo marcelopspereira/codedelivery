@@ -90,6 +90,7 @@ class OrderService{
         if($status == 0){
             $order->geo_client_no_location = $lat.','.$long;
             $order->visita = date("d/m/Y h:i:s");
+            date_create_from_format("d/m/Y","h:i:s",datefmt_get_timezone());
         }elseif($status == 1){
             $order->geo = $lat.','.$long;
         }elseif($status == 2){
