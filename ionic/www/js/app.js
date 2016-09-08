@@ -14,6 +14,7 @@ angular.module('starter', [
 ])
     .constant('appConfig',{
         baseUrl:'http://leiviton.com.br/direta/public',
+        //baseUrl:'http://192.168.137.201:8000',
         pusherKey: '9da90fc97b93c4ce952a'
     })
     .run(function($ionicPlatform,$window,appConfig,$localStorage) {

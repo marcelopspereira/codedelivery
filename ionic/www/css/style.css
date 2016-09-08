@@ -35,16 +35,58 @@
 }
 .platform-android .action-sheet-has-icons .button {
     padding-left: 56px; }
-.aux{
-    margin-left: 290px !important;
-    margin-top: -45px !important;
+
+@media (min-width: 400px) {
+    .aux {
+        margin-left: 290px !important;
+        margin-top: -45px !important;
+    }
+    .button-circle {
+        position: relative !important;
+        z-index: 999999 !important;
+
+        cursor: pointer !important;
+        text-align: center !important;
+        margin-top: 60% !important;
+        padding: 2px 2px !important;
+    }
+    .data{
+        margin-left: -11px !important;
+        margin-top: -20px !important;
+        font-size: 1.0em !important;
+    }
+
+    .conteudo{
+        margin-top: -10px !important;
+    }
+    .t{
+        font-size: 1.0em !important;
+    }
+    a.nounderline:link
+    {
+        font-size: 1.2em;
+    }
+    .equipe{
+        font-size: 1.0em !important;
+    }
+    .label{
+        font-size: 1.0em !important;
+        color: #000000 !important;
+        margin-top: -20px !important;
+    }
+
+    .visita{
+        font-size: 1.0em !important;
+    }
+
 }
 
-@media screen and (max-width: 400px) {
-    .aux{
+@media (max-width: 399px) {
+    .aux {
         margin-left: 200px !important;
         margin-top: -45px !important;
     }
+
     .button-circle {
         position: relative !important;
         z-index: 999999 !important;
@@ -54,30 +96,35 @@
         margin-top: 25% !important;
         padding: 2px 2px !important;
     }
+
     .data{
         margin-left: -11px !important;
         margin-top: -20px !important;
         font-size: 0.8em !important;
     }
+    .t{
+        font-size: 0.8em !important;
+    }
+    .conteudo{
+        margin-top: -10px !important;
+    }
+    a.nounderline:link
+    {
+        font-size: 1.0em;
+    }
+    .equipe{
+        font-size: 1.0em !important;
+    }
+    .label{
+        font-size: 0.8em !important;
+        color: #000000 !important;
+        margin-top: -20px !important;
+    }
+    .visita{
+        font-size: 0.8em !important;
+    }
 }
-.button-circle {
-    position: relative !important;
-    z-index: 999999 !important;
 
-    cursor: pointer !important;
-    text-align: center !important;
-    margin-top: 50% !important;
-    padding: 2px 2px !important;
-}
-
-a.nounderline:link
-{
-    font-size: 1.2em;
-}
-.data{
-    margin-left: -11px !important;
-    margin-top: -20px !important;
-}
 
 .alerta{
     margin-right: 11px !important;

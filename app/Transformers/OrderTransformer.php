@@ -39,6 +39,7 @@ class OrderTransformer extends TransformerAbstract
             'district' => $model->district,
             'city'=>$model->city,
             'state'=>$model->state,
+            'visita'=>$model->visita,
             'created_at' => $model->created_at,
             'updated_at' => $model->updated_at
         ];

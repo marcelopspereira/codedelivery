@@ -11,6 +11,7 @@ angular.module('starter.controllers')
         DeliverymanOrder.get({id:$stateParams.id},function (data) {
 
             $scope.order = data.data;
+            console.log($scope.order);
             $ionicLoading.hide();
         },function (dataError) {
             $ionicLoading.hide();
