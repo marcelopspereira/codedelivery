@@ -1,16 +1,15 @@
 
 /**
  * OAuth interceptor.
- *
- * @ngInject
  */
 
 function oauthInterceptor($q, $rootScope, OAuthToken) {
   return {
     request: function(config) {
+      config.headers = config.headers || {};
+
       // Inject `Authorization` header.
-      if (OAuthToken.getAuthorizationHeader()) {
-        config.headers = config.headers || {};
+      if (!config.headers.hasOwnProperty('Authorization') && OAuthToken.getAuthorizationHeader()) {
         config.headers.Authorization = OAuthToken.getAuthorizationHeader();
       }
 
@@ -39,6 +38,8 @@ function oauthInterceptor($q, $rootScope, OAuthToken) {
     }
   };
 }
+
+oauthInterceptor.$inject = ['$q', '$rootScope', 'OAuthToken'];
 
 /**
  * Export `oauthInterceptor`.

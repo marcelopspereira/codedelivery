@@ -73,6 +73,7 @@ class DeliverymanCheckoutController extends Controller
     }
 
     public function updateStatus(Request $request,$id){
+        dd($request);
         $idDeliveryman = Authorizer::getResourceOwnerId();
 
         $data = $request->get('auxiliary');
