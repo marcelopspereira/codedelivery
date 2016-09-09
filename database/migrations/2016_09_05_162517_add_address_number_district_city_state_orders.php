@@ -17,9 +17,6 @@ class AddAddressNumberDistrictCityStateOrders extends Migration
             $table->string('destrict')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
-            $table->timestamp('start time')->nullable();
-
-
         });
     }
 

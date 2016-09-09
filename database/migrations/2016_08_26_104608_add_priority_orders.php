@@ -13,7 +13,7 @@ class AddPriorityOrders extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-           $table->smallInteger('priority')->default(0);
+           $table->smallInteger('priority')->default(1);
         });
     }
 
