@@ -73,10 +73,9 @@ class DeliverymanCheckoutController extends Controller
     }
 
     public function updateStatus(Request $request,$id){
-        $idDeliveryman= Authorizer::getResourceOwnerId();
+        $idDeliveryman = Authorizer::getResourceOwnerId();
 
         $data = $request->get('auxiliary');
-        $auxiliares = $data['auxiliar'];
 
         if ($data!=null){
 
@@ -84,13 +83,16 @@ class DeliverymanCheckoutController extends Controller
                 $auxiliar['order_id'] = $id;
                 $this->auxiliaryRepository->create($auxiliar);
             }
-            $this->auxiliaryRepository-> create($data);
+            $this->auxiliaryRepository->create($data);
         }
-        return $this->orderService->updateStatus($id,$idDeliveryman,
+        return $this->orderService->updateStatus(
+            $id,
+            $idDeliveryman,
             $request->get('status'),
             $request->get('lat'),
             $request->get('long'),
-            $request->get('service'));
+            $request->get('service'),
+            $request->get('delivery_id'));
 
 
     }

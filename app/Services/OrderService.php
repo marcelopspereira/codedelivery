@@ -84,17 +84,23 @@ class OrderService{
         }
     }
 
-    public function updateStatus($id,$idDeliveryman,$status,$lat,$long,$service=null,$time=null){
+    public function updateStatus($id,$idDeliveryman,$status,$lat,$long,$service=null,$delivery_id=null){
         $order = $this->orderRepository->getByIDAndDeliveryman($id,$idDeliveryman);
 
-        if($status == 0){
-            $order->geo_client_no_location = $lat.','.$long;
-            $order->visita = date("d/m/Y h:i:s");
-            date_create_from_format("d/m/Y","h:i:s",datefmt_get_timezone());
-        }elseif($status == 1){
-            $order->geo = $lat.','.$long;
-        }elseif($status == 2){
-            $order->geo_final = $lat.','.$long;
+
+        if($delivery_id==1){
+            $order->user_deliveryman = $delivery_id;
+            $order->flag_sincronizado = 0;
+        }elseif ($delivery_id!=1){
+
+            if($status == 0){
+                $order->geo_client_no_location = $lat.','.$long;
+                $order->visita = date("d/m/Y h:i:s");
+            }elseif($status == 1){
+                $order->geo = $lat.','.$long;
+            }elseif($status == 2){
+                $order->geo_final = $lat.','.$long;
+            }
         }
         $order->status = $status;
         $order->service = $service;

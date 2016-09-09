@@ -55,41 +55,80 @@ angular.module('starter.controllers')
 
         $scope.goToDelivery = function () {
 
-            $ionicPopup.confirm({
-                title: 'Atenção',
-                template: 'Deseja iniciar esta Ordem?'
-            }).then(function(res) {
-                if(res) {
-                    var posOptions = {timeout: 30000, enableHighAccuracy: false, maximumAge: 0};
+                $ionicPopup.confirm({
+                    title: 'Atenção',
+                    template: 'Deseja iniciar esta Ordem?'
+                }).then(function(res) {
+                    if(res) {
+                        var posOptions = {timeout: 30000, enableHighAccuracy: false, maximumAge: 0};
 
-                    $cordovaGeolocation
-                        .getCurrentPosition(posOptions)
-                        .then(function (position) {
-                            var lat = position.coords.latitude;
-                            var long = position.coords.longitude;
+                        $cordovaGeolocation
+                            .getCurrentPosition(posOptions)
+                            .then(function (position) {
+                                var lat = position.coords.latitude;
+                                var long = position.coords.longitude;
 
-                            console.log(lat,long);
+                                console.log(lat,long);
 
-                            DeliverymanOrder.updateStatus({id: $stateParams.id}, {
-                                status: 1,
-                                lat: lat,
-                                long: long
-                            },function (data) {
-                                $scope.order = data;
-                                $scope.equipe = $cart.getAux();
-                                console.log(data);
+                                DeliverymanOrder.updateStatus({id: $stateParams.id}, {
+                                    status: 1,
+                                    lat: lat,
+                                    long: long
+                                },function (data) {
+                                    $scope.order = data;
+                                    $scope.equipe = $cart.getAux();
+                                    console.log(data);
+                                    $ionicLoading.hide();
+                                    $state.go('deliveryman.view_close', {id: $scope.order.id});
+                                });
+                            }, function(err) {
+                                // error
                                 $ionicLoading.hide();
-                                $state.go('deliveryman.view_close', {id: $scope.order.id});
                             });
-                        }, function(err) {
-                            // error
-                            $ionicLoading.hide();
-                        });
-                } else {
-                    $ionicLoading.hide();
-                }
-            });
-        };
+                    } else {
+                        $ionicLoading.hide();
+                    }
+                });
+            };
+
+            $scope.giveBack = function () {
+
+                $ionicPopup.confirm({
+                    title: 'Atenção',
+                    template: 'Deseja devolver esta Ordem?'
+                }).then(function(res) {
+                    if(res) {
+                        var posOptions = {timeout: 30000, enableHighAccuracy: false, maximumAge: 0};
+
+                        $cordovaGeolocation
+                            .getCurrentPosition(posOptions)
+                            .then(function (position) {
+                                var lat = position.coords.latitude;
+                                var long = position.coords.longitude;
+
+                                console.log(lat,long);
+
+                                DeliverymanOrder.updateStatus({id: $stateParams.id}, {
+                                    develirynan_id: 1,
+                                    status: 0,
+                                    lat: lat,
+                                    long: long
+                                },function (data) {
+                                    console.log(data);
+                                    $ionicLoading.hide();
+                                    $state.go('deliveryman.order');
+                                });
+                            }, function(err) {
+                                // error
+                                $ionicLoading.hide();
+                            });
+                    } else {
+                        $ionicLoading.hide();
+                    }
+                });
+            };
+
+
         
         function stopWatchPosition() {
             if(watch && typeof watch =='object' && watch.hasOwnProperty('watchID')){
