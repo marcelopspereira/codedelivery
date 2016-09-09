@@ -33,6 +33,7 @@ angular.module('starter.controllers')
                             console.log(lat,long);
 
                             DeliverymanOrder.updateStatus({id: $stateParams.id}, {
+                                deliveryman_id: null,
                                 status: 0,
                                 lat: lat,
                                 long: long
@@ -71,6 +72,7 @@ angular.module('starter.controllers')
                                 console.log(lat,long);
 
                                 DeliverymanOrder.updateStatus({id: $stateParams.id}, {
+                                    deliveryman_id: null,
                                     status: 1,
                                     lat: lat,
                                     long: long
@@ -109,7 +111,7 @@ angular.module('starter.controllers')
                                 console.log(lat,long);
 
                                 DeliverymanOrder.updateStatus({id: $stateParams.id}, {
-                                    develirynan_id: 1,
+                                    devolver:1,
                                     status: 0,
                                     lat: lat,
                                     long: long

@@ -84,29 +84,41 @@ class OrderService{
         }
     }
 
-    public function updateStatus($id,$idDeliveryman,$status,$lat,$long,$service=null,$delivery_id=null){
+    public function updateStatus($id,$idDeliveryman,$status,$lat,$long,$service=null,$devolver=null){
         $order = $this->orderRepository->getByIDAndDeliveryman($id,$idDeliveryman);
-
-
-        if($delivery_id==1){
-            $order->user_deliveryman = $delivery_id;
-            $order->flag_sincronizado = 0;
-        }elseif ($delivery_id!=1){
-
-            if($status == 0){
-                $order->geo_client_no_location = $lat.','.$long;
-                $order->visita = date("d/m/Y h:i:s");
-            }elseif($status == 1){
-                $order->geo = $lat.','.$long;
-            }elseif($status == 2){
-                $order->geo_final = $lat.','.$long;
-            }
-        }
         $order->status = $status;
-        $order->service = $service;
-        $order->time = $time;
-        if((int)($order->status == 1 && !$order->hash)){
-            $order->hash = md5((new \DateTime())->getTimestamp());
+        switch ((int)$status) {
+            case 0:
+                if($devolver==1){
+                    $order->user_deliveryman_id = (int) $devolver;
+                    $order->flag_sincronizado = 0;
+                    $order->save();
+                    break;
+                }elseif ($order->visita==null){
+                    $order->visita = date("d/m/Y h:i:s");
+                    $order->flag_sincronizado = 0;
+                    $order->geo_client_no_location = $lat.','.$long;
+                }else{
+                    $order->visita .= ','.date("d/m/Y h:i:s");
+                    $order->geo_client_no_location = $lat.','.$long;
+                    $order->flag_sincronizado = 0;
+                }
+                $order->save();
+                break;
+            case 1:
+                if((int)($order->status == 1 && !$order->hash)){
+                    $order->hash = md5((new \DateTime())->getTimestamp());
+                }
+                $order->geo = $lat.','.$long;
+                $order->flag_sincronizado = 0;
+                $order->save();
+                break;
+            case 2:
+                $order->geo_final = $lat.','.$long;
+                $order->service = $service;
+                $order->flag_sincronizado = 0;
+                $order->save();
+                break;
         }
 
         $order->save();

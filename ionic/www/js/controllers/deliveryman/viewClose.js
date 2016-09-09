@@ -54,6 +54,7 @@ angular.module('starter.controllers')
                             });
                             console.log(ax);
                             DeliverymanOrder.updateStatus({id: $stateParams.id}, {
+                                deliveryman_id: null,
                                 status: 2,
                                 lat: lat,
                                 long: long,
