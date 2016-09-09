@@ -120,8 +120,7 @@ class OrderService{
                 $order->save();
                 break;
         }
-
-        $order->save();
+        
         return $order;
 
     }

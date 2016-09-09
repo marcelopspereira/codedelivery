@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d56e061-ef30-4d02-bf0f-6373519a1623" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Deliveryman/DeliverymanCheckoutController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Deliveryman/DeliverymanCheckoutController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/OrderService.php" afterPath="$PROJECT_DIR$/app/Services/OrderService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ionic/www/js/app.js" afterPath="$PROJECT_DIR$/ionic/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ionic/www/js/controllers/deliveryman/viewClose.js" afterPath="$PROJECT_DIR$/ionic/www/js/controllers/deliveryman/viewClose.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ionic/www/js/controllers/deliveryman/viewOrder.js" afterPath="$PROJECT_DIR$/ionic/www/js/controllers/deliveryman/viewOrder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ionic/www/templates/deliveryman/view_order.html" afterPath="$PROJECT_DIR$/ionic/www/templates/deliveryman/view_order.html" />
     </list>
     <ignored path="laravel-codedelivery.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -14804,8 +14799,8 @@
       <file leaf-file-name="OrderService.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Services/OrderService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="102" column="68" selection-start-line="102" selection-start-column="68" selection-end-line="102" selection-end-column="68" />
+            <state relative-caret-position="478">
+              <caret line="122" column="8" selection-start-line="122" selection-start-column="8" selection-end-line="122" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -15181,12 +15176,12 @@
       <workItem from="1473097240333" duration="21376000" />
       <workItem from="1473333571042" duration="13471000" />
       <workItem from="1473419796059" duration="7889000" />
-      <workItem from="1473437438256" duration="3198000" />
+      <workItem from="1473437438256" duration="3353000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45934000" />
+    <option name="totallyTimeSpent" value="46089000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -15561,8 +15556,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/OrderService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="102" column="68" selection-start-line="102" selection-start-column="68" selection-end-line="102" selection-end-column="68" />
+        <state relative-caret-position="478">
+          <caret line="122" column="8" selection-start-line="122" selection-start-column="8" selection-end-line="122" selection-end-column="8" />
           <folding />
         </state>
       </provider>
